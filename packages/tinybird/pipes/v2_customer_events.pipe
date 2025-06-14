@@ -33,7 +33,7 @@ SQL >
         'lead' as event,
         event_id,
         event_name,
-        metadata
+        NULL as metadata
     FROM dub_lead_events_mv
     WHERE
         customer_id
@@ -115,7 +115,7 @@ SQL >
         'sale' as event,
         event_id,
         event_name,
-        metadata,
+        NULL as metadata,
         amount as saleAmount,
         invoice_id,
         payment_processor
@@ -160,5 +160,3 @@ SQL >
         )
     ORDER BY
         timestamp DESC, CASE event WHEN 'click' THEN 1 WHEN 'lead' THEN 2 WHEN 'sale' THEN 3 END DESC
-
-
